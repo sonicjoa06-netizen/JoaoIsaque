@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar usuario</title>
+    <style>
+       body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    margin: 0;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+main {
+    max-width: 520px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #1e3c72;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1e88e5;
+    box-shadow: 0 0 5px rgba(30, 136, 229, 0.4);
+}
+
+button,
+a {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button {
+    background: #1e88e5;
+    color: white;
+}
+
+button:hover {
+    background: #1565c0;
+}
+
+button[type="reset"] {
+    background: #6c757d;
+}
+
+button[type="reset"]:hover {
+    background: #545b62;
+}
+
+a {
+    color: #1e3c72;
+    margin-right: 10px;
+}
+
+a:hover {
+    color: #1565c0;
+}
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Cadastrar Usuario</h1>
+        <form action="cadastrar.php" method="post">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required>
+            <button type="submit">Cadastrar</button>
+            <button type="reset">Limpar</button>
+        </form>
+        <p>
+            <a href="menu.html">Menu</a>
+            <a href="cadastrar.html">Cadastrar</a>
+            <a href="listar.php">Listar</a>
+            <a href="pesquisar.html">Pesquisar</a>
+        </p>
+    </main>
+</body>
+</html>
