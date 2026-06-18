@@ -4,7 +4,7 @@ include "conexao.php";
 $nome = $_POST["nome"];
 $busca = "$nome%";
 
-$sql = "SELECT * FROM usuarios WHERE nome LIKE '$busca'";
+$sql = "SELECT * FROM tbUsuarios WHERE nome LIKE '$busca'";
 $resultado = mysqli_query($conexao, $sql);
 ?>
 <!DOCTYPE html>
