@@ -3,8 +3,8 @@ echo "<link rel='stylesheet' type='text/css' href='listar.css'/>";
 
 include "conexao.php";
 
-$listar = $conex->query("SELECT * FROM tbUsuarios ORDER BY codi_cr DESC");
-$total_registros = $listar->rowCount();
+$Listar = $conex->query("SELECT * FROM tbUsuarios ORDER BY codi_cr DESC");
+$total_registros = $Listar->rowCount();
 
 echo "<body>";
 echo "<h1>Listar Registros</h1>";
@@ -13,7 +13,7 @@ echo "<hr/>";
 if ($total_registros > 0) {
     echo "<table border='1'>";
     echo "<tr>";
-    echo "<th colspan='7'>Dados Cadastrados</th>";
+    echo "<th colspan='8'>Dados Cadastrados</th>";
     echo "</tr>";
 
     echo "<tr>";
@@ -24,9 +24,10 @@ if ($total_registros > 0) {
     echo "<th>Sexo</th>";
     echo "<th>Nascimento</th>";
     echo "<th>Acao</th>";
+    echo "<th>Acao</th>";
     echo "</tr>";
 
-    while ($linha = $listar->fetch(PDO::FETCH_ASSOC)) {
+    while ($linha = $Listar->fetch(PDO::FETCH_ASSOC)) {
         $vcodi = $linha["codi_cr"];
         $vnome = $linha["nome_cr"];
         $vemail = $linha["email_cr"];
@@ -45,6 +46,10 @@ if ($total_registros > 0) {
                 <a href='excluir.php?codigo=$vcodi' onclick=\"return confirm('Deseja realmente excluir este usuario?')\">
                     Excluir
                 </a>
+                </td>
+                <td>
+                <a href='alterar.php?codigo=$vcodi'>
+                    Consultar
               </td>";
         echo "</tr>";
     }
@@ -55,6 +60,7 @@ if ($total_registros > 0) {
 }
 
 echo "<br/><br/>";
-echo "<a href='cadastrar.html'>Cadastrar novo usuario</a>";
+echo "<a href='index.html'>Voltar pro menu</a>";
 echo "</body>";
+
 ?>

@@ -57,13 +57,7 @@ if ($total_registros > 0) {
 } else {
     echo "<p>Nenhum usuario encontrado.</p>";
 }
-
-echo "<br><br>";
-
-echo "<a href='menu.html'>Menu</a> ";
-echo "<a href='cadastrar.html'>Cadastrar</a> ";
-echo "<a href='listar.php'>Listar</a> ";
-echo "<a href='pesquisar.html'>Pesquisar</a>";
-
+echo "<br/><br/>";
+echo "<a href='index.html'>Voltar pro menu</a>";
 echo "</body>";
 ?>
