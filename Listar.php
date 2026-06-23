@@ -1,45 +1,60 @@
 <?php
- echo "<limk rel='stylesheet' type='text/css' href='listar.css'/>";
- include 'conexao.php';
- $listar=$cmd->query("select * from tbUsuarios");
- $total_registros =$listar->rowCount();
- if ($total_registros > 0)
-    {
-        echo "<body>";
-        echo "<h1>Listar Registro</h1>";
-        echo "<hr/>;
-        echo "<table>";
-        echo "<tr>";
-        <th colspan=6>
-          Dados Cadastrados
-          </tr>";
-        echo "</tr>";
-         <th>Código</th>
-         <th>Nome</th>
-         <th>E-mail</th>
-         <th>Senha</th>
-         <th>Sexo</th>
-         <th>Nascimento</th>
-        </tr>;
+echo "<link rel='stylesheet' type='text/css' href='listar.css'/>";
 
-        white($linha=lista->fetch(PDO: :FETCH_ASSOC))
-        {
-            $vcodi=$limha['codi_t'];
-            $vnome=$limha['nome_t'];
-            $vemai=$limha['emai_t'];
-            $vsenh=$limha['senh_t'];
-            $vsexo=$limha['sexo_t'];
-            $vdtna=$limha['dtna_t'];
-            echo "<tr>
-              <td>$vcodi</td>
-              <td>$vnome</td>
-              <td>$vemai</td>
-              <td>$vsenh</td>
-              <td>$vsexo</td>
-              <td>$vdtna</td>
-            </tr>";
-        }
-        echo "</table>";
-        echo "<br/><br/><br/>";
+include "conexao.php";
+
+$listar = $conex->query("SELECT * FROM tbUsuarios ORDER BY codi_cr DESC");
+$total_registros = $listar->rowCount();
+
+echo "<body>";
+echo "<h1>Listar Registros</h1>";
+echo "<hr/>";
+
+if ($total_registros > 0) {
+    echo "<table border='1'>";
+    echo "<tr>";
+    echo "<th colspan='7'>Dados Cadastrados</th>";
+    echo "</tr>";
+
+    echo "<tr>";
+    echo "<th>Codigo</th>";
+    echo "<th>Nome</th>";
+    echo "<th>E-mail</th>";
+    echo "<th>Senha</th>";
+    echo "<th>Sexo</th>";
+    echo "<th>Nascimento</th>";
+    echo "<th>Acao</th>";
+    echo "</tr>";
+
+    while ($linha = $listar->fetch(PDO::FETCH_ASSOC)) {
+        $vcodi = $linha["codi_cr"];
+        $vnome = $linha["nome_cr"];
+        $vemail = $linha["email_cr"];
+        $vsenha = $linha["senha_cr"];
+        $vsexo = $linha["sexo_cr"];
+        $vdtna = $linha["dtna_cr"];
+
+        echo "<tr>";
+        echo "<td>$vcodi</td>";
+        echo "<td>$vnome</td>";
+        echo "<td>$vemail</td>";
+        echo "<td>$vsenha</td>";
+        echo "<td>$vsexo</td>";
+        echo "<td>$vdtna</td>";
+        echo "<td>
+                <a href='excluir.php?codigo=$vcodi' onclick=\"return confirm('Deseja realmente excluir este usuario?')\">
+                    Excluir
+                </a>
+              </td>";
+        echo "</tr>";
     }
+
+    echo "</table>";
+} else {
+    echo "<p>Nenhum usuario cadastrado.</p>";
+}
+
+echo "<br/><br/>";
+echo "<a href='cadastrar.html'>Cadastrar novo usuario</a>";
+echo "</body>";
 ?>
